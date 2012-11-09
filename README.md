@@ -19,7 +19,7 @@ Default output path is relative to where the command is executed and is called '
 installation
 ------------
 
-    `go get github.com/karlek/keigo/cmd/glogger`
+    go get github.com/karlek/keigo/cmd/glogger
 
 public domain
 -------------
