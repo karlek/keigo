@@ -8,7 +8,7 @@ documentation
 
 Documentation provided by GoPkgDoc:
 
-   - [keigo](http://go.pkgdoc.org/github.com/karlek/keigo).
+   - [keigo](http://go.pkgdoc.org/github.com/karlek/keigo)
 
 glogger
 =====
